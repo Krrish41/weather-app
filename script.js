@@ -6,6 +6,19 @@ const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city){
+    if(!city || city.trim() === ""){
+        document.querySelector(".temp").innerHTML = "";
+        weatherIcon.src = "images/blankField.png";
+        document.querySelector(".city").innerHTML = "Please enter a city";
+        document.querySelector(".details").style.display = "none";
+        
+        const cityElement = document.querySelector(".city");
+        cityElement.style.fontFamily = '"EB Garamond", serif';
+        cityElement.style.fontOpticalSizing = 'auto';
+        cityElement.style.fontWeight = '500';
+        cityElement.style.fontStyle = 'normal';
+        return; //exit function early & not proceed with fetch
+    }
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`); //waits for the fetch to complete
 
     if(response.status == 404){
@@ -20,7 +33,7 @@ async function checkWeather(city){
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + 
         "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".wind").innerHTML = data.wind.speed + "&nbsp;km/h";
 
         if(data.weather[0].main == "Clouds"){
             // .src updates the source
