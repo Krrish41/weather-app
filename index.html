@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+    <link rel="icon" href="./images/websiteIco.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="card">
+    <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false">
+        <button><img src="./images/search.png" alt="Search ico "></button>
+    </div>
+    <!-- <div class="error">
+        <p>Invalid City</p>
+    </div> -->
+    <div class="weather">
+        <img src="./images/websiteIco.png" alt="Rain ico" class="weather-icon">
+        <h1 class="temp"></h1>
+        <h2 class="city">Weather App</h2>
+        <div class="details">
+            <div class="col">
+                <img src="./images/humidity.png" alt="humidity ico">
+                <div>
+                    <p class="humidity"></p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="./images/wind.png" alt="wind ico">
+                <div>
+                    <p class="wind"></p>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footr">
+        &copy Krrish 21 Oct 2025
+    </footer>
+</div>
+
+<script src="script.js" charset="UTF-8"></script>
+
+</body>
+</html>
