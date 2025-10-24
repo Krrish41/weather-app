@@ -21,6 +21,8 @@ async function checkWeather(city){
     }
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`); //waits for the fetch to complete
 
+    
+
     if(response.status == 404){
         document.querySelector(".temp").innerHTML = "";
         weatherIcon.src = "images/invalidCity.png";
@@ -28,6 +30,7 @@ async function checkWeather(city){
         document.querySelector(".details").style.display = "none";
     } else{
         var data = await response.json(); //reads response and parses it from JSON string into JS object
+        console.log(data);
 
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
@@ -53,6 +56,21 @@ async function checkWeather(city){
         }
         else if(data.weather[0].main == "Snow"){
             weatherIcon.src = "images/snow.png";
+        }
+        else if(data.weather[0].main == "Smoke"){
+            weatherIcon.src = "images/smoke.png";
+        }
+        else if(data.weather[0].main == "Fog"){
+            weatherIcon.src = "images/fog.png";
+        }
+        else if(data.weather[0].main == "Haze"){
+            weatherIcon.src = "images/haze.png";
+        }
+        else if(data.weather[0].main == "Thunderstorm"){
+            weatherIcon.src = "images/thunderstorm.png";
+        }
+        else{
+            weatherIcon.src = "images/unknown.png";
         }
         document.querySelector(".details").style.display = "flex";
     }
